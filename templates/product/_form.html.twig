@@ -1,0 +1,45 @@
+{{ form_start(form) }}
+
+    <div class="form-group mb-3">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control' ~ (form.name.vars.errors|length > 0 ? ' is-invalid' : '')}}) }}
+        {% if form.name.vars.errors|length > 0 %}
+            <div class="invalid-feedback">
+                {{ form_errors(form.name) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group mb-3">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control' ~ (form.description.vars.errors|length > 0 ? ' is-invalid' : ''), 'rows': 5}}) }}
+        {% if form.description.vars.errors|length > 0 %}
+            <div class="invalid-feedback">
+                {{ form_errors(form.description) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group mb-3">
+        {{ form_label(form.price) }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-control' ~ (form.price.vars.errors|length > 0 ? ' is-invalid' : '')}}) }}
+        {% if form.price.vars.errors|length > 0 %}
+            <div class="invalid-feedback">
+                {{ form_errors(form.price) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group mb-3">
+        {{ form_label(form.stockQuantity) }}
+        {{ form_widget(form.stockQuantity, {'attr': {'class': 'form-control' ~ (form.stockQuantity.vars.errors|length > 0 ? ' is-invalid' : '')}}) }}
+        {% if form.stockQuantity.vars.errors|length > 0 %}
+            <div class="invalid-feedback">
+                {{ form_errors(form.stockQuantity) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <button class="btn btn-primary float-end">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}
